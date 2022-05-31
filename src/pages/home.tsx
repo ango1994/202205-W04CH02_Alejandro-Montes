@@ -1,6 +1,8 @@
 import React from 'react';
 
 export function Home({ state }: { state: number }) {
+    const accountTypes = ['Personal', 'Pro', 'Business'];
+
     const form1 = (
         <form action="">
             <div>
@@ -30,9 +32,32 @@ export function Home({ state }: { state: number }) {
         </form>
     );
 
+    const form2 = (
+        <form action="">
+            <div>
+                <input type="text" /> Username
+            </div>
+            <div>
+                <input type="password" /> Pasword
+            </div>
+            <div>
+                <input type="password" name="" id="" /> Repeat paswword
+            </div>
+            <div>
+                <select name="" id="">
+                    <option value=""></option>
+                    {accountTypes.map((type) => (
+                        <option key={type}>{type}</option>
+                    ))}
+                </select>
+            </div>
+        </form>
+    );
+
     if (state === 1) {
         return form1;
-    } else {
-        return <></>;
+    } else if (state === 2) {
+        return form2;
     }
+    return <></>;
 }
